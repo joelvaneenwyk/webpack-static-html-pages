@@ -8,7 +8,12 @@ const TerserPlugin = require('terser-webpack-plugin')
 
 const buildPath = path.resolve(__dirname, 'dist')
 
+const ASSET_PATH = process.env.ASSET_PATH || '/';
+
 module.exports = {
+  output: {
+    publicPath: ASSET_PATH
+  },
 
   // This option controls if and how source maps are generated.
   // https://webpack.js.org/configuration/devtool/
@@ -19,13 +24,6 @@ module.exports = {
     index: './src/page-index/main.js',
     about: './src/page-about/main.js',
     contacts: './src/page-contacts/main.js'
-  },
-
-  // how to write the compiled files to disk
-  // https://webpack.js.org/concepts/output/
-  output: {
-    filename: '[name].[hash:20].js',
-    path: buildPath
   },
 
   // https://webpack.js.org/concepts/loaders/
@@ -53,6 +51,7 @@ module.exports = {
           {
             loader: 'url-loader',
             options: {
+              publicPath: '',
               name: '[name].[hash:20].[ext]',
               esModule: false,
               limit: 8192
@@ -95,9 +94,7 @@ module.exports = {
     minimize: true,
     minimizer: [
       new TerserPlugin({
-        cache: true,
-        parallel: true,
-        sourceMap: true
+        parallel: true
       }),
       new OptimizeCssAssetsPlugin({})
     ]
