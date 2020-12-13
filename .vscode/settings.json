@@ -1,0 +1,24 @@
+{
+  "editor.defaultFormatter": "HookyQR.beautify",
+  "editor.formatOnSave": true,
+  "eslint.format.enable": true,
+  "liveServer.settings.root": "/dist",
+  "beautify.language": {
+    "js": {
+      "type": ["javascript", "json", "jsonc"],
+      "filename": [".jshintrc", ".jsbeautifyrc", "settings.json"],
+      "ext": ["js", "json"]
+    },
+    "css": ["css", "scss"],
+    "html": ["htm", "html"]
+  },
+  "htmlhint.options": {
+    "spec-char-escape": false,
+    "doctype-first": false,
+  },
+  "cSpell.words": [
+    "forkable",
+    "lifenautjoe",
+    "nvmrc"
+  ]
+}

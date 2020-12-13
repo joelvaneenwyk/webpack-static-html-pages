@@ -63,7 +63,7 @@ module.exports = {
   // https://webpack.js.org/concepts/plugins/
   plugins: [
     new HtmlWebpackPlugin({
-      template: './src/page-index/tmpl.html',
+      template: './src/page-index/template.ejs',
       inject: true,
       chunks: ['index'],
       options: {
@@ -72,7 +72,7 @@ module.exports = {
       filename: 'index.html'
     }),
     new HtmlWebpackPlugin({
-      template: './src/page-about/tmpl.html',
+      template: './src/page-about/template.ejs',
       inject: true,
       chunks: ['about'],
       options: {
@@ -81,7 +81,7 @@ module.exports = {
       filename: 'about.html'
     }),
     new HtmlWebpackPlugin({
-      template: './src/page-contacts/tmpl.html',
+      template: './src/page-contacts/template.ejs',
       inject: true,
       chunks: ['contacts'],
       options: {

@@ -1,18 +1,16 @@
-Static html pages with Webpack 4
-================================
+# Static html pages with Webpack 5
 
 [![Build Status](https://travis-ci.com/ivarprudnikov/webpack-static-html-pages.svg?branch=master)](https://travis-ci.com/ivarprudnikov/webpack-static-html-pages)
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com)
 [![GitHub issues](https://img.shields.io/github/issues/ivarprudnikov/webpack-static-html-pages.svg)](https://github.com/ivarprudnikov/webpack-static-html-pages/issues)
 [![GitHub last commit](https://img.shields.io/github/last-commit/ivarprudnikov/webpack-static-html-pages.svg)](https://github.com/ivarprudnikov/webpack-static-html-pages/commits/master)
 
-[> PREVIEW LIVE](https://ivarprudnikov.github.io/webpack-static-html-pages/)
 --------------------------------
 
 This is a forkable example of static site (plain html/css/javascript)
 assembled with webpack. You could also use this repository as a template when creating a new one.
 
-Article explaining how this example was created: https://www.ivarprudnikov.com/static-website-multiple-html-pages-using-webpack-plus-github-example/
+Article explaining how this example was created: [Static website, multiple html pages, using Webpack + example on Github – Aivaras Prudnikovas – Software engineer specializing in web application development. Building enterprise web products, Microservices and Android apps.](https://www.ivarprudnikov.com/static-website-multiple-html-pages-using-webpack-plus-github-example/)
 
 ## Prerequisites
 

@@ -66,19 +66,19 @@ module.exports = {
   plugins: [
     new CleanWebpackPlugin(), // cleans output.path by default
     new HtmlWebpackPlugin({
-      template: './src/page-index/tmpl.html',
+      template: './src/page-index/template.ejs',
       inject: 'body',
       chunks: ['index'],
       filename: 'index.html'
     }),
     new HtmlWebpackPlugin({
-      template: './src/page-about/tmpl.html',
+      template: './src/page-about/template.ejs',
       inject: 'body',
       chunks: ['about'],
       filename: 'about.html'
     }),
     new HtmlWebpackPlugin({
-      template: './src/page-contacts/tmpl.html',
+      template: './src/page-contacts/template.ejs',
       inject: 'body',
       chunks: ['contacts'],
       filename: 'contacts.html'
