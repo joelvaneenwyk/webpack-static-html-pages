@@ -11,14 +11,21 @@
   ],
   "license": "MIT",
   "dependencies": {
+    "beautify-html-webpack-plugin": "^1.0.3",
+    "colorguard": "^1.2.1",
+    "cq-prolyfill": "^0.4.0",
     "ejs": "^3.1.5",
     "extract-loader": "^5.1.0",
+    "html-beautify-webpack-plugin": "^1.0.5",
     "html-webpack-link-type-plugin": "^1.0.4",
     "normalize.css": "^8.0.1",
+    "postcss-inline-svg": "^5.0.0",
     "postcss-loader": "^4.1.0",
     "postcss-preset-env": "^6.7.0",
     "sass": "^1.30.0",
-    "sass-loader": "^10.1.0"
+    "sass-loader": "^10.1.0",
+    "stylefmt": "^6.0.3",
+    "stylelint": "^13.8.0"
   },
   "scripts": {
     "start": "webpack serve --config webpack.dev.js --mode development",

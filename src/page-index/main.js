@@ -1,22 +1,6 @@
-import {
-  Bar
-} from '../js/bar.es6';
+/**
+ * This is only used for loading other resources.
+ */
 
-const {
-  Foo
-} = require('../js/foo.cjs');
-
-// require('normalize.css/normalize.css');
-require('../css/main.css');
-require('../css/magic.scss');
-require('./page.css');
-
-document.addEventListener('DOMContentLoaded', () => {
-  console.log('DOMContentLoaded', 'page-index');
-});
-
-window.Foo = Foo.instance();
-window.Bar = Bar();
-
-console.log(window.Foo.getValue());
-console.log(window.Bar);
+import 'normalize.css/normalize.css';
+import '../css/main.scss';

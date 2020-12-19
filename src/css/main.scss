@@ -1,10 +1,17 @@
+$buffer: 50px;
+$dark: rgba(0, 0, 0, 0.1);
+
+::placeholder {
+  color: gray;
+}
+
 html,
 body {
   height: 100vh;
 }
 
 body {
-  background-color: #ffffff;
+  background-color: white;
   color: #2c302f;
   font-weight: 400;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -47,9 +54,9 @@ nav>ul>li>a {
   font-weight: bold;
   text-shadow: 0 -1px black;
   text-decoration: none;
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  border: 1px solid $dark;
   border-radius: 3px;
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: $dark;
 }
 
 .page-title {
@@ -97,4 +104,9 @@ footer>ul>li>a {
 
 .spacer {
   flex: 2 1 auto;
+}
+
+
+.magic {
+  margin-left: $buffer;
 }
