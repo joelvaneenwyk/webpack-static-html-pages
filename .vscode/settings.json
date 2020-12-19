@@ -4,13 +4,11 @@
   "eslint.format.enable": true,
   "liveServer.settings.root": "/dist",
   "beautify.language": {
-    "js": {
-      "type": ["javascript", "json", "jsonc"],
-      "filename": [".jshintrc", ".jsbeautifyrc", "settings.json"],
-      "ext": ["js", "json"]
-    },
     "css": ["css", "scss"],
     "html": ["htm", "html"]
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
   },
   "htmlhint.options": {
     "spec-char-escape": false,
@@ -20,5 +18,6 @@
     "forkable",
     "lifenautjoe",
     "nvmrc"
-  ]
+  ],
+  "liveServer.settings.port": 5501
 }

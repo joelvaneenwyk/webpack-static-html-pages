@@ -1,7 +1,7 @@
-require('normalize.css/normalize.css')
-require('../css/main.css')
-require('./page.css')
+import 'normalize.css/normalize.css';
+import '../css/main.css';
+import './page.css';
 
 document.addEventListener('DOMContentLoaded', () => {
-  console.log('DOMContentLoaded', 'page-contacts')
-})
+  console.log('DOMContentLoaded', 'page-contacts');
+});

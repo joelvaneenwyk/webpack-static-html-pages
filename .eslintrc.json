@@ -1,0 +1,23 @@
+{
+  "extends": "standard",
+  "parserOptions": {
+    "ecmaVersion": 6
+  },
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "overrides": [{
+    "files": ["*.js"],
+    "rules": {
+      "semi": [
+        "error",
+        "always",
+        {
+          "omitLastInOneLineBlock": true
+        }
+      ],
+      "space-before-function-paren": "off"
+    }
+  }]
+}

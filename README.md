@@ -10,7 +10,7 @@
 This is a forkable example of static site (plain html/css/javascript)
 assembled with webpack. You could also use this repository as a template when creating a new one.
 
-Article explaining how this example was created: [Static website, multiple html pages, using Webpack + example on Github – Aivaras Prudnikovas – Software engineer specializing in web application development. Building enterprise web products, Microservices and Android apps.](https://www.ivarprudnikov.com/static-website-multiple-html-pages-using-webpack-plus-github-example/)
+Article explaining how this example was created: [Static website, multiple html pages, using Webpack + example on Github – Aivaras Prudnikovas](https://www.ivarprudnikov.com/static-website-multiple-html-pages-using-webpack-plus-github-example/)
 
 ## Prerequisites
 

@@ -1,8 +1,8 @@
-let invocation = 0
+let invocation = 0;
 
 const Bar = () => {
-  invocation++
-  return `barfoo ${invocation}`
-}
+  invocation++;
+  return `barfoo ${invocation}`;
+};
 
-export { Bar }
+export { Bar };

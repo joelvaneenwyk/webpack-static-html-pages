@@ -1,4 +1,4 @@
-const HtmlWebpackPlugin = require('html-webpack-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 // Try the environment variable, otherwise use root
 const ASSET_PATH = process.env.ASSET_PATH || '/';
@@ -28,66 +28,48 @@ module.exports = {
   // https://webpack.js.org/concepts/loaders/
   module: {
     rules: [{
-        test: /\.js$/i,
-        exclude: /node_modules/,
-        loader: 'babel-loader',
-        options: {
-          presets: ['@babel/preset-env']
-        }
-      },
-      {
-        test: /\.css$/i,
-        use: [
-          'style-loader',
-          'css-loader'
-          // Please note we are not running postcss here
-        ]
-      },
-      {
-        // Load all images as base64 encoding if they are smaller than 8192 bytes
-        test: /\.(png|jpe?g|gif|svg)$/i,
-        use: [{
-          loader: 'url-loader',
-          options: {
-            publicPath: '',
-            // On development we want to see where the file is coming from, hence we preserve the [path]
-            name: '[path][name].[ext]?hash=[hash:20]',
-            esModule: false,
-            limit: 8192
-          }
-        }]
+      test: /\.js$/i,
+      exclude: /node_modules/,
+      loader: 'babel-loader',
+      options: {
+        presets: ['@babel/preset-env']
       }
+    },
+    {
+      test: /\.css$/i,
+      use: [
+        'style-loader',
+        'css-loader'
+        // Please note we are not running postcss here
+      ]
+    },
+    {
+      // Load all images as base64 encoding if they are smaller than 8192 bytes
+      test: /\.(png|jpe?g|gif|svg)$/i,
+      use: [{
+        loader: 'url-loader',
+        options: {
+          publicPath: '',
+          // On development we want to see where the file is coming from, hence we preserve the [path]
+          name: '[path][name].[ext]?hash=[hash:20]',
+          esModule: false,
+          limit: 8192
+        }
+      }]
+    }
     ]
   },
 
   // https://webpack.js.org/concepts/plugins/
-  plugins: [
-    new HtmlWebpackPlugin({
-      template: './src/page-index/template.ejs',
+  plugins: ['index', 'about', 'contacts'].map(x => {
+    return new HtmlWebpackPlugin({
+      template: `./src/page-${x}/template.ejs`,
       inject: true,
-      chunks: ['index'],
+      chunks: [x],
       options: {
         publicPath: ''
       },
-      filename: 'index.html'
-    }),
-    new HtmlWebpackPlugin({
-      template: './src/page-about/template.ejs',
-      inject: true,
-      chunks: ['about'],
-      options: {
-        publicPath: ''
-      },
-      filename: 'about.html'
-    }),
-    new HtmlWebpackPlugin({
-      template: './src/page-contacts/template.ejs',
-      inject: true,
-      chunks: ['contacts'],
-      options: {
-        publicPath: ''
-      },
-      filename: 'contacts.html'
-    })
-  ]
-}
+      filename: `${x}.html`
+    });
+  })
+};
