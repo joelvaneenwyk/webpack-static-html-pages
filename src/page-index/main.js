@@ -6,8 +6,9 @@ const {
   Foo
 } = require('../js/foo.cjs');
 
-require('normalize.css/normalize.css');
+// require('normalize.css/normalize.css');
 require('../css/main.css');
+require('../css/magic.scss');
 require('./page.css');
 
 document.addEventListener('DOMContentLoaded', () => {

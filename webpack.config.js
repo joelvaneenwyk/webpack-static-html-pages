@@ -1,7 +1,48 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const LinkTypePlugin = require('html-webpack-link-type-plugin').HtmlWebpackLinkTypePlugin;
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const HTMLInlineCSSWebpackPlugin = require('html-inline-css-webpack-plugin').default;
 
 // Try the environment variable, otherwise use root
 const ASSET_PATH = process.env.ASSET_PATH || '/';
+
+const htmlPlugins = [];
+
+// htmlPlugins.push(
+//  require('postcss-preset-env')({
+//    browsers: 'last 2 versions',
+//    root: ASSET_PATH
+//  }));
+htmlPlugins.push(new MiniCssExtractPlugin({
+  filename: '[name].css',
+  chunkFilename: '[id].css'
+}));
+htmlPlugins.push(...['index'].map(x => {
+  return new HtmlWebpackPlugin({
+    template: `./src/page-${x}/template.ejs`,
+    inject: false,
+    chunks: [x],
+    minify: {
+      collapseWhitespace: false,
+      removeComments: false,
+      removeRedundantAttributes: false,
+      useShortDoctype: false
+    },
+    showErrors: true,
+    options: {
+      publicPath: ''
+    },
+    filename: `${x}.html`
+  });
+}));
+
+htmlPlugins.push(new HTMLInlineCSSWebpackPlugin({
+  replace: {
+    removeTarget: true,
+    target: '<!-- inline_css_plugin -->'
+  }
+}));
+htmlPlugins.push(new LinkTypePlugin());
 
 module.exports = {
   output: {
@@ -10,13 +51,11 @@ module.exports = {
 
   // This option controls if and how source maps are generated.
   // https://webpack.js.org/configuration/devtool/
-  devtool: 'eval-cheap-module-source-map',
+  devtool: 'source-map',
 
   // https://webpack.js.org/concepts/entry-points/#multi-page-application
   entry: {
-    index: './src/page-index/main.js',
-    about: './src/page-about/main.js',
-    contacts: './src/page-contacts/main.js'
+    index: './src/page-index/main.js'
   },
 
   // https://webpack.js.org/configuration/dev-server/
@@ -36,11 +75,14 @@ module.exports = {
       }
     },
     {
-      test: /\.css$/i,
+      test: /\.((c|sa|sc)ss)$/i,
       use: [
-        'style-loader',
-        'css-loader'
-        // Please note we are not running postcss here
+        // Creates `style` nodes from JS strings
+        MiniCssExtractPlugin.loader,
+        // Translates CSS into CommonJS
+        'css-loader',
+        // Compiles Sass to CSS
+        'sass-loader'
       ]
     },
     {
@@ -61,15 +103,5 @@ module.exports = {
   },
 
   // https://webpack.js.org/concepts/plugins/
-  plugins: ['index', 'about', 'contacts'].map(x => {
-    return new HtmlWebpackPlugin({
-      template: `./src/page-${x}/template.ejs`,
-      inject: true,
-      chunks: [x],
-      options: {
-        publicPath: ''
-      },
-      filename: `${x}.html`
-    });
-  })
+  plugins: htmlPlugins
 };
